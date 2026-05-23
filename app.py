@@ -4,6 +4,6 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    data = request.json
+    data = request.get_json(force=True)
     print("SIGNAL RECEIVED:", data)
     return "OK", 200
